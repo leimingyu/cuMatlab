@@ -14,12 +14,11 @@ The following examples are provided as the boilerplates.
 * Cuda Toolkit 7.5
 
 
-### Installation
-
+### Examples
+##### cudakernels
 Build the mex function for the cuda files.
 Please modify the Makefile to update the compilation environment.
 
-For the **cudakernels** example 
 ```sh
 $ cd cudakernels && make
 ```
@@ -29,7 +28,7 @@ $ ls
 Makefile  nvmex  nvopts.sh  vectoradd_cuda.cu  vectoradd_cuda.mexa64
 ```
 
-Run the vectoradd_cuda inside Matlab.
+Run the vectoradd_cuda() inside Matlab.
 ```sh
 $ matlab -nodesktop -nojvm -nosplash
 >> a = rand(1, 10)
@@ -44,6 +43,42 @@ a1 =
 b =
     1.8147    1.9058    1.1270    1.9134    1.6324    1.0975    1.2785    1.5469    1.9575    1.9649
 ```
+
+
+
+##### cuBLAS
+Test SGEMM.
+You can modify the **MEXFILES**  for your kernel function in the Makefile.
+Run the sgemm_cublas() inside Matlab.
+```sh
+$ matlab -nodesktop -nojvm -nosplash
+>> A = [1 2 3 4; 5 6 7 8]
+A =
+     1     2     3     4
+     5     6     7     8
+     
+>> B = [1 2 3 4; 5 6 7 8]' 
+B =
+     1     5
+     2     6
+     3     7
+     4     8
+     
+>> C = zeros(size(A,1), size(B,2))\
+C =
+     0     0
+     0     0
+>> C_out = sgemm_cublas(0,0,1,0, single(A), single(B), single(C))
+C_out =
+    30    70
+    70   174
+
+>> A * B
+ans =
+    30    70
+    70   174
+```
+
 
 References
 ----
