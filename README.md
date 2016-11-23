@@ -17,6 +17,7 @@ The following examples are provided as the boilerplates.
 ### Examples
 ##### cudakernels
 Build the mex function for the cuda files.
+
 Please modify the Makefile to update the compilation environment.
 
 ```sh
@@ -49,7 +50,9 @@ b =
 ##### cuBLAS
 Test SGEMM.
 You can modify the **MEXFILES**  for your kernel function in the Makefile.
+
 Run the sgemm_cublas() inside Matlab.
+
 ```sh
 $ matlab -nodesktop -nojvm -nosplash
 >> A = [1 2 3 4; 5 6 7 8]
