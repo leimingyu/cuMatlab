@@ -64,7 +64,7 @@ B =
      3     7
      4     8
      
->> C = zeros(size(A,1), size(B,2))\
+>> C = zeros(size(A,1), size(B,2))
 C =
      0     0
      0     0
