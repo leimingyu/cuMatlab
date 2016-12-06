@@ -27,7 +27,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 	//-----------------------------------------------------------------------//
 	// read input 0
 	mxArray const *src 		= prhs[0];
-	float *A				= (float*)mxGetData( src );
+	float *A			= (float*)mxGetData( src );
 
 	//mwSize const *srcSize 	= mxGetDimensions( src);
 	//int A_len = (srcSize[0] == 1 ? srcSize[1] : srcSize[0]);
